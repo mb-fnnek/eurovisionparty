@@ -10,6 +10,7 @@ import {
 import {NgIf, NgOptimizedImage} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 import {ParticipantCardComponent} from './participant-card/participant-card.component';
+import {ActivatedRoute} from '@angular/router';
 
 export class Item {
   name: string;
@@ -31,6 +32,15 @@ export class Item {
   imports: [CdkDropList, CdkDrag, NgIf, MatButton, ParticipantCardComponent, NgOptimizedImage, CdkDragHandle],
 })
 export class DragDroplistComponent {
+  name!: string;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe((params) => {
+      this.name = params.get('name')!;
+    });
+  }
   chosenParticipants = [new Item('Get to work', 12), new Item('Pick up groceries', 10), new Item('Go home', 9), new Item('Fall asleep', 8)];
 
   participants = [new Item('Get up', 0), new Item('Brush teeth', 0), new Item('Take a shower', 0), new Item('Check e-mail', 0), new Item('Walk dog', 0), new Item('Walk dog 2', 0), new Item('Wa2lk dog', 0), new Item('Walk dogsss', 0), new Item('Walk dog', 0)];

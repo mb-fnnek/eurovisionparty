@@ -6,7 +6,7 @@ import {ResultsComponent} from './results/results.component';
 
 export const routes: Routes = [
   { path: 'start', component: NameFormComponent },
-  { path: 'vote', component: DragDroplistComponent },
+  { path: 'vote/:name', component: DragDroplistComponent },
   { path: 'results', component: ResultsComponent },
   { path: '**', redirectTo: 'start' } // opcjonalne: przekierowanie na /start, jeśli ścieżka nie istnieje
 ];

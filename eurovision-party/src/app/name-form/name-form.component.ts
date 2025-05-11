@@ -29,6 +29,7 @@ export class NameFormComponent {
   }
 
   goToVote(): void {
-    this.router.navigate(['/vote']);
+    localStorage.setItem('name', this.name);
+    this.router.navigate(['/vote/' + this.name]);
   }
 }
