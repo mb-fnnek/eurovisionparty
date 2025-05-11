@@ -14,7 +14,7 @@
       </div>
       @for (item of chosenParticipants; track item) {
         <!--<div class="example-box" cdkDrag>{{ item.name }} Points {{ item.points }}</div>-->
-        <div class="example-box" cdkDrag [cdkDragStartDelay]="100">
+        <div class="example-box" cdkDrag [cdkDragStartDelay]="1000">
           <app-participant-card></app-participant-card>
         </div>
       }
