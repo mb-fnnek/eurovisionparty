@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap'); /* You can add global styles to this file, and also import other style files */
+/*
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap'); !* You can add global styles to this file, and also import other style files *!
+*/
 
 :root {
   --mdc-elevated-card-container-shape: 0px;
@@ -16,12 +18,12 @@
   --mdc-theme-error: red;
   --mdc-outlined-button-label-text-color: white;
   --mdc-text-button-label-text-color: white;
-  --mdc-filled-button-label-text-font: Nunito, sans-serif;
+  --mdc-filled-button-label-text-font: Arial, sans-serif;
 }
 
 html {
   background: linear-gradient(to bottom, purple, blue);
-  font-family: Nunito, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
