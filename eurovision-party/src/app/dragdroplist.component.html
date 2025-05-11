@@ -37,7 +37,7 @@
       class="example-list"
       (cdkDropListDropped)="drop($event)">
       @for (item of participants; track item) {
-        <div class="example-box" cdkDrag>
+        <div class="example-box" cdkDrag [cdkDragStartDelay]="1000">
           <app-participant-card></app-participant-card>
         </div>
       }
