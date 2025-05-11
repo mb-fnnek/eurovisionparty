@@ -1,17 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatCard} from '@angular/material/card';
 import {CdkDrag, CdkDragHandle} from '@angular/cdk/drag-drop';
+import {Item} from '../dragdroplist.component';
+import {NgIf} from '@angular/common';
+import {MatIcon} from '@angular/material/icon';
 
 @Component({
   selector: 'app-participant-card',
   imports: [
     MatCard,
     CdkDrag,
-    CdkDragHandle
+    CdkDragHandle,
+    NgIf,
+    MatIcon,
   ],
   templateUrl: './participant-card.component.html',
   styleUrl: './participant-card.component.css'
 })
 export class ParticipantCardComponent {
-
+  @Input() data: Item | undefined;
 }

@@ -2,13 +2,16 @@
   <div class="card-content">
     <!-- Lewa strona - obrazek -->
     <div class="image-container">
-      <img src="https://eurovision.tv/sites/default/files/styles/teaser/public/media/image/2025-03/Justyna-Steczkowska-main.jpg" alt="Obrazek" />
+      <img
+        src="https://eurovision.tv/sites/default/files/styles/teaser/public/media/image/2025-03/Justyna-Steczkowska-main.jpg"
+        alt="Obrazek"/>
     </div>
 
     <!-- Środkowa treść -->
     <div class="text-container">
       <div class="title">Polska
-        <img src="https://eurovision.tv/sites/default/files/media/image/2023-08/ESC-HEART-POLAND-WHITE.png" alt="Obrazek" width="20"/></div>
+        <img src="https://eurovision.tv/sites/default/files/media/image/2023-08/ESC-HEART-POLAND-WHITE.png"
+             alt="Obrazek" width="20"/></div>
       <div class="subtitle">
         Justyna Steczkowska
       </div>
@@ -19,7 +22,8 @@
 
     <!-- Prawa strona - liczba -->
     <div class="number-container" cdkDragHandle>
-      <div class="number-box">289</div>
+      <div *ngIf="data?.points != 0" class="number-box">{{ data?.points }}</div>
+      <div *ngIf="data?.points === 0" class="number-box"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu"></mat-icon></div>
     </div>
   </div>
 </mat-card>

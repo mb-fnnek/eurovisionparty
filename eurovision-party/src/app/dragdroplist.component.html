@@ -15,7 +15,7 @@
       @for (item of chosenParticipants; track item) {
         <!--<div class="example-box" cdkDrag>{{ item.name }} Points {{ item.points }}</div>-->
         <div class="example-box" cdkDrag>
-          <app-participant-card></app-participant-card>
+          <app-participant-card [data]=item>></app-participant-card>
         </div>
       }
     </div>
@@ -38,7 +38,7 @@
       (cdkDropListDropped)="drop($event)">
       @for (item of participants; track item) {
         <div class="example-box" cdkDrag>
-          <app-participant-card></app-participant-card>
+          <app-participant-card [data]=item></app-participant-card>
         </div>
       }
 

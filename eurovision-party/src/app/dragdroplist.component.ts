@@ -11,7 +11,7 @@ import {NgIf, NgOptimizedImage} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 import {ParticipantCardComponent} from './participant-card/participant-card.component';
 
-class Item {
+export class Item {
   name: string;
   points: number;
 
@@ -31,7 +31,6 @@ class Item {
   imports: [CdkDropList, CdkDrag, NgIf, MatButton, ParticipantCardComponent, NgOptimizedImage, CdkDragHandle],
 })
 export class DragDroplistComponent {
-  snackBar = inject(MatSnackBar);
   chosenParticipants = [new Item('Get to work', 12), new Item('Pick up groceries', 10), new Item('Go home', 9), new Item('Fall asleep', 8)];
 
   participants = [new Item('Get up', 0), new Item('Brush teeth', 0), new Item('Take a shower', 0), new Item('Check e-mail', 0), new Item('Walk dog', 0), new Item('Walk dog 2', 0), new Item('Wa2lk dog', 0), new Item('Walk dogsss', 0), new Item('Walk dog', 0)];
@@ -51,7 +50,6 @@ export class DragDroplistComponent {
     if (this.chosenParticipants.length === 12) {
       var last = this.chosenParticipants.pop();
       this.participants.push(<Item>last);
-      this.snackBar.open("test")
     }
     this.recalculate();
   }
@@ -69,6 +67,9 @@ export class DragDroplistComponent {
       }
     });
     this.chosenParticipants.sort((a, b) => b.points - a.points);
+    this.participants.forEach(item => {
+      item.points = 0;
+    });
   }
 
   reset() {
