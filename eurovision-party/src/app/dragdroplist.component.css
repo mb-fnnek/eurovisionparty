@@ -75,11 +75,3 @@
 .mat-mdc-card {
   --mdc-elevated-card-container-color: #ffffff;
 }
-@media screen and (max-width: 600px) {
-  .example-container {
-    width: 200px;
-  }
-  .example-box {
-    width: 200px;
-  }
-}
