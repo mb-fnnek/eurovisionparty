@@ -1,0 +1,47 @@
+<div class="content">
+  <div class="site-title">
+    <img ngSrc="/ESC_Basel2025_White_V2.png" height="92" width="240"> Zagłosuj na swoje ulubione wykonania
+  </div>
+  <div class="example-container">
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="chosenParticipants"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="empty-placeholder" *ngIf="chosenParticipants.length === 0">Przenieś tutaj swoje ulubione wykonania
+      </div>
+      @for (item of chosenParticipants; track item) {
+        <!--<div class="example-box" cdkDrag>{{ item.name }} Points {{ item.points }}</div>-->
+        <div class="example-box" cdkDrag>
+          <app-participant-card></app-participant-card>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="button-container">
+    <button mat-stroked-button (click)="reset()">
+      Resetuj
+    </button>
+    <button mat-flat-button (click)="reset()">
+      Wyślij
+    </button>
+  </div>
+  <div class="example-container">
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="participants"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      @for (item of participants; track item) {
+        <div class="example-box" cdkDrag>
+          <app-participant-card></app-participant-card>
+        </div>
+      }
+
+    </div>
+  </div>
+</div>

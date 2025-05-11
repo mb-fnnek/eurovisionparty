@@ -1,0 +1,44 @@
+/* Przesunięcie komponentu w górę ekranu */
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh; /* przesunięcie w górę */
+}
+
+/* Styl karty */
+.card {
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tytuł */
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Pełna szerokość inputa */
+.full-width {
+  width: 100%;
+}
+
+/* Zaokrąglenie inputa */
+::ng-deep .rounded-input .mat-form-field-outline {
+  border-radius: 12px;
+}
+
+/* Przycisk */
+.button {
+  align-self: center;
+  width: 50%;
+}

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap'); /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --mdc-elevated-card-container-shape: 0px;
+  --mdc-filled-button-container-shape: 4px;
+  --mdc-outlined-button-container-shape: 4px;
+  --mdc-filled-button-container-color: purple;
+  --mdc-outlined-button-container-color: purple;
+  --mdc-theme-primary: purple;
+  --mdc-theme-secondary: blue;
+  --mdc-theme-on-primary: white;
+  --mdc-theme-on-secondary: white;
+  --mdc-theme-on-surface: white;
+  --mdc-theme-surface: white;
+  --mdc-theme-background: white;
+  --mdc-theme-error: red;
+  --mdc-outlined-button-label-text-color: white;
+  --mdc-text-button-label-text-color: white;
+  --mdc-filled-button-label-text-font: Nunito, sans-serif;
+}
+
+html {
+  background: linear-gradient(to bottom, purple, blue);
+  font-family: Nunito, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.site-title {
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  min-height: 100px;
+  font-size: 1.6rem;
+}

@@ -1,0 +1,15 @@
+<div class="site-title"><img ngSrc="/ESC_Basel2025_White_V2.png" height="92" width="240"></div>
+<div class="container">
+  <mat-card class="card">
+    <h2 class="title">Podaj swoje imię</h2>
+
+    <mat-form-field appearance="outline" class="full-width rounded-input">
+      <mat-label>Imię</mat-label>
+      <input matInput [(ngModel)]="name" placeholder="Wpisz imię" />
+    </mat-form-field>
+
+    <button mat-flat-button (click)="goToVote()">
+      Wyślij
+    </button>
+  </mat-card>
+</div>

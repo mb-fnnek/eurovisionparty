@@ -1,0 +1,60 @@
+.card-container {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, purple, blue);
+  color: white;
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+}
+
+.image-container {
+  flex: 0 0 25%;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.text-container {
+  flex: 1;
+  padding: 8px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 1rem;
+  gap: 10px;
+  color: white;
+}
+
+.number-container {
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.number-box {
+  /*background: linear-gradient(to right, purple, blue);*/
+  background: purple;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  height: auto;
+  min-width: 40px;
+  text-align: center;
+  font-size: 16px;
+}
