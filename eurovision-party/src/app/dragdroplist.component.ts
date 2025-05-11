@@ -5,7 +5,7 @@ import {
   moveItemInArray,
   transferArrayItem,
   CdkDrag,
-  CdkDropList,
+  CdkDropList, CdkDragHandle,
 } from '@angular/cdk/drag-drop';
 import {NgIf, NgOptimizedImage} from '@angular/common';
 import {MatButton} from '@angular/material/button';
@@ -28,7 +28,7 @@ class Item {
   selector: 'drag-drop-list',
   templateUrl: './dragdroplist.component.html',
   styleUrl: './dragdroplist.component.css',
-  imports: [CdkDropList, CdkDrag, NgIf, MatButton, ParticipantCardComponent, NgOptimizedImage],
+  imports: [CdkDropList, CdkDrag, NgIf, MatButton, ParticipantCardComponent, NgOptimizedImage, CdkDragHandle],
 })
 export class DragDroplistComponent {
   snackBar = inject(MatSnackBar);
