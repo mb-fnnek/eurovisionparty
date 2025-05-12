@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:eurovision-party": "node dist/eurovision-party/server/server.mjs"
+    "serve:ssr:eurovision-party": "node dist/eurovision-party/server/server.mjs",
+    "build:ssr": "ng build && ng run eurovision-party:server"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.10",
+    "@nguniversal/express-engine": "^7.0.2",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
