@@ -1,5 +1,6 @@
 import {Component, inject} from '@angular/core';
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { ParticipantsService, Participant } from './service/participants.service';
+
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -33,19 +34,21 @@ export class Item {
 })
 export class DragDroplistComponent {
   name!: string;
+  participants!: Participant[];
+  chosenParticipants!: Participant[];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private participantsService: ParticipantsService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       this.name = params.get('name')!;
     });
+    this.participantsService.getParticipants().subscribe(data => {
+      this.participants = data.participants;
+    });
   }
-  chosenParticipants = [new Item('Get to work', 12), new Item('Pick up groceries', 10), new Item('Go home', 9), new Item('Fall asleep', 8)];
 
-  participants = [new Item('Get up', 0), new Item('Brush teeth', 0), new Item('Take a shower', 0), new Item('Check e-mail', 0), new Item('Walk dog', 0), new Item('Walk dog 2', 0), new Item('Wa2lk dog', 0), new Item('Walk dogsss', 0), new Item('Walk dog', 0)];
-
-  drop(event: CdkDragDrop<Item[]>) {
+  drop(event: CdkDragDrop<Participant[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -59,7 +62,7 @@ export class DragDroplistComponent {
     }
     if (this.chosenParticipants.length === 12) {
       var last = this.chosenParticipants.pop();
-      this.participants.push(<Item>last);
+      this.participants.push(<Participant>last);
     }
     this.recalculate();
   }
