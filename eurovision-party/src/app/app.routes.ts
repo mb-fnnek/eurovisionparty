@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NameFormComponent } from './name-form/name-form.component';
 import { DragDroplistComponent } from './dragdroplist.component';
 import {ResultsComponent} from './results/results.component';
+import { HttpClientModule } from '@angular/common/http';
 
 export const routes: Routes = [
   { path: 'start', component: NameFormComponent },
@@ -12,7 +13,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), HttpClientModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
