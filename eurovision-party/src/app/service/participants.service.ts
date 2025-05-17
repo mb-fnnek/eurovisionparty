@@ -20,7 +20,7 @@ export interface ParticipantsResponse {
   providedIn: 'root'
 })
 export class ParticipantsService {
-  private apiUrl = 'http://localhost:8000/participants';
+  private apiUrl = '/api/participants';
 
   constructor(private http: HttpClient) {}
 
