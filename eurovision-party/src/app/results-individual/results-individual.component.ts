@@ -25,6 +25,8 @@ export class ResultsIndividualComponent {
     });
     this.results = [];
     this.participantsService.getResultsIndividual(this.user_id).subscribe(data => {
+      console.log("sur" + this.user_id);
+
       this.results = data;
     });
   }
