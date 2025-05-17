@@ -1,0 +1,12 @@
+<div class="site-title"><img ngSrc="/ESC_Basel2025_White_V2.png" height="92" width="240">Dzięki za oddanie głosu!</div>
+<div class="grid-container">
+  <div class="column">
+    <app-participant-card
+      class="fade-in-up"
+      *ngFor="let item of results; let idx = index"
+      [data]="item"
+      [style.animationDelay]="(idx * 100) + 'ms'">
+
+    </app-participant-card>
+  </div>
+</div>

@@ -37,6 +37,7 @@ export class ParticipantsService {
   private apiUrlList = '/api/participants';
   private apiUrlVote = '/api/vote';
   private apiUrlResults = '/api/final_results';
+  private apiUrlResultsIndividual = '/api/user/results/';
 
   constructor(private http: HttpClient) {}
 
@@ -46,6 +47,10 @@ export class ParticipantsService {
 
   getResults(): Observable<Participant[]> {
     return this.http.get<Participant[]>(this.apiUrlResults);
+  }
+
+  getResultsIndividual(user_id: string): Observable<Participant[]> {
+    return this.http.get<Participant[]>(this.apiUrlResultsIndividual + user_id);
   }
 
   submit(list: Participant[], user_id: string): Observable<VoteResponse> {

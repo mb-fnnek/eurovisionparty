@@ -9,6 +9,7 @@ export const routes: Routes = [
   { path: 'start', component: NameFormComponent },
   { path: 'vote/:name', component: DragDroplistComponent },
   { path: 'results', component: ResultsComponent },
+  { path: 'results/:id', component: ResultsComponent },
   { path: '**', redirectTo: 'start' } // opcjonalne: przekierowanie na /start, jeśli ścieżka nie istnieje
 ];
 
