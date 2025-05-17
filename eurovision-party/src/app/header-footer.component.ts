@@ -11,7 +11,7 @@ import { NgOptimizedImage } from '@angular/common';
         <img ngSrc="/ESC_Basel2025_White_V2.png" height="92" width="240" alt="ESC Basel 2025">
       </div>
       <div class="qr-container">
-        <img ngSrc="/qr.png" height="402" width="402" alt="QR Code">
+        <img ngSrc="/qr.png" height="200" width="200" alt="QR Code" class="qr-image">
       </div>
     </div>
   `,
@@ -20,7 +20,6 @@ import { NgOptimizedImage } from '@angular/common';
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      position: relative;
     }
 
     .site-title {
@@ -28,11 +27,14 @@ import { NgOptimizedImage } from '@angular/common';
     }
 
     .qr-container {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      padding-bottom: 2rem;
+      flex: 1;
+      display: flex;
+      align-items: center; /* wycentrowanie w pionie */
+      justify-content: center;
+    }
+
+    .qr-image {
+      border-radius: 20px;
     }
   `]
 })
