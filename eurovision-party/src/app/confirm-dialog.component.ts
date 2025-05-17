@@ -13,8 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
       Czy na pewno chcesz zapisać swoje głosy?
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-      <button mat-button [mat-dialog-close]="false">Nie</button>
-      <button mat-button [mat-dialog-close]="true" color="primary">Tak</button>
+      <button mat-flat-button [mat-dialog-close]="false">Nie</button>
+      <button mat-flat-button [mat-dialog-close]="true" color="primary">Tak</button>
     </mat-dialog-actions>
   `
 })
