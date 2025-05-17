@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NameFormComponent } from './name-form/name-form.component';
 import { DragDroplistComponent } from './dragdroplist.component';
 import {ResultsComponent} from './results/results.component';
-import { HttpClientModule } from '@angular/common/http';
 import {ResultsIndividualComponent} from './results-individual/results-individual.component';
 
 export const routes: Routes = [
