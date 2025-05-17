@@ -5,7 +5,7 @@ import {Participant, ParticipantsService} from '../service/participants.service'
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-results',
+  selector: 'app-results-individual',
   imports: [
     ParticipantCardComponent,
     NgForOf,
@@ -13,6 +13,7 @@ import {ActivatedRoute} from '@angular/router';
   ],
   templateUrl: './results-individual.component.html',
   styleUrl: './results-individual.component.css',
+  standalone: true,
 })
 export class ResultsIndividualComponent {
   constructor(private participantsService: ParticipantsService, private route: ActivatedRoute) { }
