@@ -11,7 +11,7 @@ import {
 import {NgIf, NgOptimizedImage} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 import {ParticipantCardComponent} from './participant-card/participant-card.component';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './service/user.service';
 import {subscribe} from 'node:diagnostics_channel';
@@ -44,7 +44,7 @@ export class DragDroplistComponent {
   participants!: Participant[];
   chosenParticipants!: Participant[];
 
-  constructor(private route: ActivatedRoute, private participantsService: ParticipantsService, private userService : UserService, private dialog: MatDialog) {}
+  constructor(private router: Router, private route: ActivatedRoute, private participantsService: ParticipantsService, private userService : UserService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.chosenParticipants = [];
@@ -113,6 +113,7 @@ export class DragDroplistComponent {
         this.participantsService.submit(this.chosenParticipants, this.user_id).subscribe({
           next: (response) => {
             console.log('Głosy zostały zapisane pomyślnie');
+            this.router.navigate(['/user/results/' + this.user_id]);
           },
           error: (error) => {
             console.error('Wystąpił błąd podczas zapisywania głosów:', error);
