@@ -7,8 +7,8 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [NgOptimizedImage],
   template: `
     <div class="container">
-      <div><h2>fnnek.com</h2></div>
       <div class="qr-container">
+        <div class="website-url"><h2>fnnek.com</h2></div>
         <img ngSrc="/qr.png" height="402" width="402" alt="QR Code" class="qr-image">
       </div>
     </div>
@@ -27,8 +27,16 @@ import { NgOptimizedImage } from '@angular/common';
     .qr-container {
       flex: 1;
       display: flex;
-      align-items: center; /* wycentrowanie w pionie */
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 1rem;
+    }
+
+    .website-url {
+      color: white;
+      font-size: 1.5rem;
+      text-align: center;
     }
 
     .qr-image {
