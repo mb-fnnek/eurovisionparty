@@ -20,7 +20,7 @@ export class ResultsIndividualComponent {
   user_id!: string;
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
-      this.user_id = params.get('name')!
+      this.user_id = params.get('id')!
     });
     this.results = [];
     this.participantsService.getResultsIndividual(this.user_id).subscribe(data => {
