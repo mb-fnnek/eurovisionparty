@@ -42,6 +42,7 @@ export class DragDroplistComponent {
   constructor(private route: ActivatedRoute, private participantsService: ParticipantsService) {}
 
   ngOnInit() {
+    this.chosenParticipants = [];
     this.route.paramMap.subscribe((params) => {
       this.name = params.get('name')!;
     });
