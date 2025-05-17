@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {RegisterRequest, RegisterResponse} from './user.service';
 
 export interface Participant {
   id: string;
@@ -12,6 +13,19 @@ export interface Participant {
   points: number;
 }
 
+export interface Vote {
+  participant_id: string;
+  points: number;
+}
+
+export interface VoteRequest {
+  votes: Vote[];
+}
+
+export interface VoteResponse {
+  status: string;
+}
+
 export interface ParticipantsResponse {
   participants: Participant[];
 }
@@ -20,11 +34,31 @@ export interface ParticipantsResponse {
   providedIn: 'root'
 })
 export class ParticipantsService {
-  private apiUrl = '/api/participants';
+  private apiUrlList = '/api/participants';
+  private apiUrlVote = '/api/participants';
 
   constructor(private http: HttpClient) {}
 
   getParticipants(): Observable<ParticipantsResponse> {
-    return this.http.get<ParticipantsResponse>(this.apiUrl);
+    return this.http.get<ParticipantsResponse>(this.apiUrlList);
   }
+
+  submit(list: Participant[]): Observable<VoteResponse> {
+
+    return this.http.post<VoteResponse>(this.apiUrlVote, mapParticipantsToVotes(list) );
+  }
+
+
 }
+
+function mapParticipantToVote(participant: Participant): Vote {
+  return {
+    participant_id: participant.id,
+    points: participant.points
+  };
+}
+
+function mapParticipantsToVotes(participants: Participant[]): Vote[] {
+  return participants.map(participant => mapParticipantToVote(participant));
+}
+

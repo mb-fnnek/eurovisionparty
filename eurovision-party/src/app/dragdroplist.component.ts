@@ -14,6 +14,7 @@ import {ParticipantCardComponent} from './participant-card/participant-card.comp
 import {ActivatedRoute} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './service/user.service';
+import {subscribe} from 'node:diagnostics_channel';
 
 export class Item {
   name: string;
@@ -95,5 +96,16 @@ export class DragDroplistComponent {
     this.participants.push(...this.chosenParticipants);
     this.chosenParticipants = [];
     this.recalculate();
+  }
+
+  submit() {
+    this.participantsService.submit(this.chosenParticipants).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 }
