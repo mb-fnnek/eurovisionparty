@@ -5,6 +5,7 @@ import {MatCard} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import { Router } from '@angular/router';
 import {NgOptimizedImage} from '@angular/common';
+import {RegisterService} from '../service/register.service';
 
 @Component({
   selector: 'app-name-form',
@@ -16,20 +17,23 @@ import {NgOptimizedImage} from '@angular/common';
     MatCard,
     MatInput,
     MatButton,
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   styleUrls: ['./name-form.component.css']
 })
 export class NameFormComponent {
   name: string = '';
-  constructor(private router: Router) {}
+  constructor(private router: Router, private registerService: RegisterService) {}
 
   submitName() {
     console.log('Imię:', this.name);
   }
 
   goToVote(): void {
-    localStorage.setItem('name', this.name);
-    this.router.navigate(['/vote/' + this.name]);
+    this.registerService.registerUser({user_name: this.name}).subscribe(data => {
+      this.router.navigate(['/vote/' + data.user_id]);
+    })
+/*    localStorage.setItem('name', this.name);
+    this.router.navigate(['/vote/' + this.name]);*/
   }
 }
