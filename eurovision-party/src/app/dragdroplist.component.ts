@@ -39,6 +39,7 @@ export class Item {
   standalone: true,
 })
 export class DragDroplistComponent {
+  user_id!: string;
   name!: string;
   participants!: Participant[];
   chosenParticipants!: Participant[];
@@ -49,6 +50,7 @@ export class DragDroplistComponent {
     this.chosenParticipants = [];
     this.route.paramMap.subscribe((params) => {
       this.userService.getUserName(params.get('name')!).subscribe(data => {
+        this.user_id = data.user_id;
         this.name = data.user_name;
       })
     });
