@@ -47,7 +47,6 @@ export class DragDroplistComponent {
       this.name = params.get('name')!;
     });
     this.participantsService.getParticipants().subscribe(data => {
-      console.log(data);
       this.participants = data.participants;
     });
   }
