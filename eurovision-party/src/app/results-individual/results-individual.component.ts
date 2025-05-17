@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {ParticipantCardComponent} from '../participant-card/participant-card.component';
-import {NgForOf, NgOptimizedImage} from '@angular/common';
+import {NgFor, NgForOf, NgOptimizedImage} from '@angular/common';
 import {Participant, ParticipantsService} from '../service/participants.service';
 import {ActivatedRoute} from '@angular/router';
 
@@ -9,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
   imports: [
     ParticipantCardComponent,
     NgForOf,
+    NgFor,
     NgOptimizedImage
   ],
   templateUrl: './results-individual.component.html',
