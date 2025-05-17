@@ -45,10 +45,8 @@ export class ParticipantsService {
 
   submit(list: Participant[]): Observable<VoteResponse> {
 
-    return this.http.post<VoteResponse>(this.apiUrlVote, mapParticipantsToVotes(list) );
+    return this.http.post<VoteResponse>(this.apiUrlVote, {votes : mapParticipantsToVotes(list)});
   }
-
-
 }
 
 function mapParticipantToVote(participant: Participant): Vote {
