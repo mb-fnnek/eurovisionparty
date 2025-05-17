@@ -8,7 +8,7 @@
       <input matInput [(ngModel)]="name" placeholder="Wpisz imię" />
     </mat-form-field>
 
-    <button mat-flat-button (click)="goToVote()">
+    <button mat-flat-button [disabled]="name.length === 0" (click)="goToVote()">
       Wyślij
     </button>
   </mat-card>
