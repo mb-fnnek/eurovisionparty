@@ -22,15 +22,11 @@ export class ResultsIndividualComponent {
     this.route.paramMap.subscribe((params) => {
       console.log(params.get('id'));
       this.user_id = params.get('id')!
-      this.results = [];
       this.participantsService.getResultsIndividual(this.user_id).subscribe(data => {
         console.log("sur" + this.user_id);
-
         this.results = data;
+        console.log(data);
       });
     });
-
   }
-
-
 }
