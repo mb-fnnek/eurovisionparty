@@ -23,8 +23,8 @@
 
     <!-- Prawa strona - liczba -->
     <div class="number-container" cdkDragHandle>
-      <div *ngIf="data?.points != 0 && data?.points != undefined" class="number-box">{{ data?.points }}</div>
-      <div *ngIf="data?.points === 0 || data?.points == undefined" class="number-box"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu"></mat-icon></div>
+      <div *ngIf="data?.points != undefined" class="number-box">{{ data?.points }}</div>
+      <div *ngIf="data?.points == undefined" class="number-box"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="menu"></mat-icon></div>
     </div>
   </div>
 </mat-card>
