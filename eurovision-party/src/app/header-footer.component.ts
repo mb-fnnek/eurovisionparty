@@ -7,6 +7,7 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [NgOptimizedImage],
   template: `
     <div class="container">
+      <div><h2>fnnek.com</h2></div>
       <div class="qr-container">
         <img ngSrc="/qr.png" height="402" width="402" alt="QR Code" class="qr-image">
       </div>
