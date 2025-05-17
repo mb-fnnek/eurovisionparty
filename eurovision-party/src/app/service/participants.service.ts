@@ -50,6 +50,7 @@ export class ParticipantsService {
   }
 
   getResultsIndividual(user_id: string): Observable<Participant[]> {
+    console.log("get resutl" + user_id);
     return this.http.get<Participant[]>(this.apiUrlResultsIndividual + user_id);
   }
 
