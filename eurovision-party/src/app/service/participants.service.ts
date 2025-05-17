@@ -35,7 +35,7 @@ export interface ParticipantsResponse {
 })
 export class ParticipantsService {
   private apiUrlList = '/api/participants';
-  private apiUrlVote = '/api/participants';
+  private apiUrlVote = '/api/vote';
 
   constructor(private http: HttpClient) {}
 
