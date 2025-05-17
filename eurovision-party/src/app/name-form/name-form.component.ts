@@ -5,7 +5,7 @@ import {MatCard} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import { Router } from '@angular/router';
 import {NgOptimizedImage} from '@angular/common';
-import {RegisterService} from '../service/register.service';
+import {UserService} from '../service/user.service';
 
 @Component({
   selector: 'app-name-form',
@@ -23,7 +23,7 @@ import {RegisterService} from '../service/register.service';
 })
 export class NameFormComponent {
   name: string = '';
-  constructor(private router: Router, private registerService: RegisterService) {}
+  constructor(private router: Router, private registerService: UserService) {}
 
   goToVote(): void {
     this.registerService.registerUser({user_name: this.name}).subscribe(data => {

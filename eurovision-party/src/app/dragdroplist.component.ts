@@ -13,6 +13,7 @@ import {MatButton} from '@angular/material/button';
 import {ParticipantCardComponent} from './participant-card/participant-card.component';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import {UserService} from './service/user.service';
 
 export class Item {
   name: string;
@@ -39,12 +40,14 @@ export class DragDroplistComponent {
   participants!: Participant[];
   chosenParticipants!: Participant[];
 
-  constructor(private route: ActivatedRoute, private participantsService: ParticipantsService) {}
+  constructor(private route: ActivatedRoute, private participantsService: ParticipantsService, private userService : UserService) {}
 
   ngOnInit() {
     this.chosenParticipants = [];
     this.route.paramMap.subscribe((params) => {
-      this.name = params.get('name')!;
+      this.userService.getUserName(params.get('name')!).subscribe(data => {
+        this.name = data.user_name;
+      })
     });
     this.participantsService.getParticipants().subscribe(data => {
       this.participants = data.participants;
