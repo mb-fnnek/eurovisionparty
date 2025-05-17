@@ -26,7 +26,7 @@ export class ResultsIndividualComponent {
       this.user_id = params.get('id')!
       this.participantsService.getResultsIndividual(this.user_id).subscribe(data => {
         console.log("sur" + this.user_id);
-        this.results = data;
+        this.results = data.votes;
         console.log(data);
       });
     });

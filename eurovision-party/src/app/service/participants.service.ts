@@ -30,6 +30,10 @@ export interface ParticipantsResponse {
   participants: Participant[];
 }
 
+export interface VotesIndividualResponse {
+  votes: Participant[];
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,7 +41,7 @@ export class ParticipantsService {
   private apiUrlList = '/api/participants';
   private apiUrlVote = '/api/vote';
   private apiUrlResults = '/api/final_results';
-  private apiUrlResultsIndividual = '/api/user/results/';
+  private apiUrlResultsIndividual = 'https://fnnek.com/api/user/results/';
 
   constructor(private http: HttpClient) {}
 
@@ -49,9 +53,9 @@ export class ParticipantsService {
     return this.http.get<Participant[]>(this.apiUrlResults);
   }
 
-  getResultsIndividual(user_id: string): Observable<Participant[]> {
+  getResultsIndividual(user_id: string): Observable<VotesIndividualResponse> {
     console.log("get resutl" + user_id);
-    return this.http.get<Participant[]>(this.apiUrlResultsIndividual + user_id);
+    return this.http.get<VotesIndividualResponse>(this.apiUrlResultsIndividual + user_id);
   }
 
   submit(list: Participant[], user_id: string): Observable<VoteResponse> {
