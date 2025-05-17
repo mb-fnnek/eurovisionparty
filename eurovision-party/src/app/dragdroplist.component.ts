@@ -92,7 +92,7 @@ export class DragDroplistComponent {
     });
     this.chosenParticipants.sort((a, b) => b.points - a.points);
     this.participants.forEach(item => {
-      item.points = 0;
+      //item.points = 0;
     });
   }
 
