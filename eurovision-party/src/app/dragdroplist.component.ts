@@ -15,6 +15,8 @@ import {ActivatedRoute} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './service/user.service';
 import {subscribe} from 'node:diagnostics_channel';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './confirm-dialog.component';
 
 export class Item {
   name: string;
@@ -41,7 +43,7 @@ export class DragDroplistComponent {
   participants!: Participant[];
   chosenParticipants!: Participant[];
 
-  constructor(private route: ActivatedRoute, private participantsService: ParticipantsService, private userService : UserService) {}
+  constructor(private route: ActivatedRoute, private participantsService: ParticipantsService, private userService : UserService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.chosenParticipants = [];
@@ -99,13 +101,23 @@ export class DragDroplistComponent {
   }
 
   submit() {
-    this.participantsService.submit(this.chosenParticipants).subscribe(
-      data => {
-        console.log(data);
-      },
-      error => {
-        console.log(error);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '300px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Użytkownik kliknął "Tak"
+        this.participantsService.submit(this.chosenParticipants, this.name).subscribe({
+          next: (response) => {
+            console.log('Głosy zostały zapisane pomyślnie');
+          },
+          error: (error) => {
+            console.error('Wystąpił błąd podczas zapisywania głosów:', error);
+          }
+        });
       }
-    )
+      // Jeśli result jest false lub undefined, użytkownik kliknął "Nie" lub zamknął dialog
+    });
   }
 }
