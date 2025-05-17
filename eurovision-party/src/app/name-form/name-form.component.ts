@@ -25,12 +25,9 @@ export class NameFormComponent {
   name: string = '';
   constructor(private router: Router, private registerService: RegisterService) {}
 
-  submitName() {
-    console.log('Imię:', this.name);
-  }
-
   goToVote(): void {
     this.registerService.registerUser({user_name: this.name}).subscribe(data => {
+      console.log(data);
       this.router.navigate(['/vote/' + data.user_id]);
     })
 /*    localStorage.setItem('name', this.name);
