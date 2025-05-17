@@ -6,12 +6,13 @@ import {
   moveItemInArray,
   transferArrayItem,
   CdkDrag,
-  CdkDropList, CdkDragHandle,
+  CdkDropList,
 } from '@angular/cdk/drag-drop';
 import {NgIf, NgOptimizedImage} from '@angular/common';
 import {MatButton} from '@angular/material/button';
 import {ParticipantCardComponent} from './participant-card/participant-card.component';
 import {ActivatedRoute} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 export class Item {
   name: string;
@@ -30,7 +31,8 @@ export class Item {
   selector: 'drag-drop-list',
   templateUrl: './dragdroplist.component.html',
   styleUrl: './dragdroplist.component.css',
-  imports: [CdkDropList, CdkDrag, NgIf, MatButton, ParticipantCardComponent, NgOptimizedImage, CdkDragHandle],
+  imports: [CdkDropList, CdkDrag, NgIf, MatButton, ParticipantCardComponent, NgOptimizedImage],
+  standalone: true,
 })
 export class DragDroplistComponent {
   name!: string;
