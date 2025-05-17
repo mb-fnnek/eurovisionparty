@@ -24,7 +24,8 @@
     <button mat-stroked-button (click)="reset()">
       Resetuj
     </button>
-    <button mat-flat-button (click)="submit()">
+    <button mat-flat-button (click)="submit()"
+            [disabled]="chosenParticipants.length < 11">
       Wyślij
     </button>
   </div>
