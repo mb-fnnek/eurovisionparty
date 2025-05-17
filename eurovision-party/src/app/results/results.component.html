@@ -4,7 +4,7 @@
     <app-participant-card
       class="fade-in-up"
       *ngFor="let item of leftColumn; let idx = index"
-
+      [data]="item"
       [style.animationDelay]="(idx * 100) + 'ms'">
 
     </app-participant-card>
@@ -14,6 +14,7 @@
       class="fade-in-up"
       *ngFor="let item of rightColumn; let idx = index"
       [style.animationDelay]="(idx * 100) + 'ms'"
+      [data]="item"
     ></app-participant-card>
   </div>
 </div>

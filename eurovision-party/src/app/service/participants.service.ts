@@ -36,11 +36,16 @@ export interface ParticipantsResponse {
 export class ParticipantsService {
   private apiUrlList = '/api/participants';
   private apiUrlVote = '/api/vote';
+  private apiUrlResults = '/api/results';
 
   constructor(private http: HttpClient) {}
 
   getParticipants(): Observable<ParticipantsResponse> {
     return this.http.get<ParticipantsResponse>(this.apiUrlList);
+  }
+
+  getResults(): Observable<Participant[]> {
+    return this.http.get<Participant[]>(this.apiUrlResults);
   }
 
   submit(list: Participant[], user_id: string): Observable<VoteResponse> {
