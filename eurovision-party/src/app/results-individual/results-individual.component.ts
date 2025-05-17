@@ -20,6 +20,7 @@ export class ResultsIndividualComponent {
   user_id!: string;
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
+      console.log(params.get('id'));
       this.user_id = params.get('id')!
     });
     this.results = [];
