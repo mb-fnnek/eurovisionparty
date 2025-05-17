@@ -110,7 +110,7 @@ export class DragDroplistComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         // Użytkownik kliknął "Tak"
-        this.participantsService.submit(this.chosenParticipants, this.name).subscribe({
+        this.participantsService.submit(this.chosenParticipants, this.user_id).subscribe({
           next: (response) => {
             console.log('Głosy zostały zapisane pomyślnie');
           },
